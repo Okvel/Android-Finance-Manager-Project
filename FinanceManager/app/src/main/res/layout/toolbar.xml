@@ -6,6 +6,6 @@
     android:layout_height="wrap_content"
     android:background="@color/primary_color_fm_theme"
     android:theme="@style/ToolBarTheme"
-    android:popupTheme="@style/Theme.AppCompat.Light"
+    android:popupTheme="@style/AppTheme"
     />
 
