@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_color_fm_theme">#689f38</color>
-    <color name="primary_dark_color_fm_theme">#558b2f</color>
+    <color name="primary_color_fm_theme">#009688</color>
+    <color name="primary_dark_color_fm_theme">#00796b</color>
     <color name="background_fm_theme">#f1f8e9</color>
     <color name="foreground_fm_theme">#4a4a4a</color>
-    <color name="accent_fm_theme">#673ab7</color>
+    <color name="accent_fm_theme">#e53935</color>
     <color name="window_background_fm_theme">#000000</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
