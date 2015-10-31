@@ -25,6 +25,12 @@
                 android:theme="@style/ToolBarTheme" />
         </android.support.design.widget.AppBarLayout>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+
         <android.support.v7.widget.Toolbar
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/bottom_toolbar"
@@ -39,10 +45,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="@dimen/design_fab_elevation"
-            android:layout_gravity="end|bottom"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="28dp"/>
+            android:clickable="true"
+            android:layout_margin="16dp"
+            app:layout_anchor="@id/bottom_toolbar"
+            app:layout_anchorGravity="right|top|end"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

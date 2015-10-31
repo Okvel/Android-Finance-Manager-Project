@@ -1,21 +1,21 @@
 package net.lion.okvel.financemanager.activity;
 
-import android.app.ActionBar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.bettervectordrawable.Convention;
 import com.bettervectordrawable.VectorDrawableCompat;
 
 import net.lion.okvel.financemanager.R;
+import net.lion.okvel.financemanager.adapter.RecyclerViewAdapter;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -28,8 +28,12 @@ public class MainActivity extends AppCompatActivity
     private Toolbar bottomBar;
     private FloatingActionButton fab;
     private DrawerLayout drawerLayout;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter rvAdapter;
+    private RecyclerView.LayoutManager rvLayoutManager;
 
     private int totalMoney = 0;
+    private String[] data = new String[1];
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity
 
         initToolBar();
         initNavigationView();
+        initRecyclerView();
         intiBottomBar();
     }
 
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity
     private void initToolBar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
-        //toolbar.inflateMenu(R.menu.menu);
+        toolbar.inflateMenu(R.menu.menu);
     }
 
     /**
@@ -81,6 +86,21 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
+     * Initialize {@linkplain RecyclerView}
+     */
+    private void initRecyclerView()
+    {
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+
+        rvLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(rvLayoutManager);
+
+        rvAdapter = new RecyclerViewAdapter(data);
+        recyclerView.setAdapter(rvAdapter);
+    }
+
+    /**
      * Initialize bottom {@linkplain Toolbar} with {@linkplain FloatingActionButton}
      */
     private void intiBottomBar()
@@ -92,6 +112,6 @@ public class MainActivity extends AppCompatActivity
         bottomBar.setTitle(totalText);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setImageResource(R.drawable.plus_vector);
+        fab.setImageResource(R.drawable.vector_plus);
     }
 }
