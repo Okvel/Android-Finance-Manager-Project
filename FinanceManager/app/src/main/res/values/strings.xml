@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">Finance Manager Beta</string>
-    <string name="settings">Settings</string>
-    <string name="help">Help</string>
+    <string name="app_name">Finance Manager PreAlpha</string>
 
+    <string name="menu_navigation_settings">Settings</string>
+    <string name="menu_navigation_help">Help</string>
     <string name="menu_navigation_month">Month</string>
+
+    <string name="view_navigation_open">Open</string>
+    <string name="view_navigation_close">Close</string>
+
+    <string name="bottom_bar_total">Total: </string>
+    <string name="bottom_bar_RUB"> RUB</string>
 </resources>

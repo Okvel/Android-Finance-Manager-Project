@@ -2,7 +2,7 @@
 <resources>
     <color name="primary_color_fm_theme">#009688</color>
     <color name="primary_dark_color_fm_theme">#00796b</color>
-    <color name="background_fm_theme">#f1f8e9</color>
+    <color name="background_fm_theme">#e0f2f1</color>
     <color name="foreground_fm_theme">#4a4a4a</color>
     <color name="accent_fm_theme">#e53935</color>
     <color name="window_background_fm_theme">#000000</color>

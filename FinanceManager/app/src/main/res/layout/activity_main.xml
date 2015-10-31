@@ -22,10 +22,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                android:theme="@style/ToolBarTheme"
-                android:popupTheme="@style/AppTheme"
-                />
+                android:theme="@style/ToolBarTheme" />
         </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/bottom_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:layout_gravity="bottom"
+            android:elevation="@dimen/design_appbar_elevation"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/design_fab_elevation"
+            android:layout_gravity="end|bottom"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="28dp"/>
 
     </android.support.design.widget.CoordinatorLayout>
 
@@ -35,7 +52,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/menu_navigation"
-        app:headerLayout="@layout/navigation_header"
-        />
+        app:headerLayout="@layout/navigation_header"/>
 
 </android.support.v4.widget.DrawerLayout>
