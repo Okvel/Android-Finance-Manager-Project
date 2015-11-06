@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Finance Manager PreAlpha</string>
+
+    <string name="appbar_main_menu_calendar">Календарь</string>
+
+    <string name="menu_navigation_settings">Настройки</string>
+    <string name="menu_navigation_help">Помощь</string>
+    <string name="menu_navigation_month">Месяц</string>
+
+    <string name="bottom_bar_total">Всего: </string>
+    <string name="bottom_bar_RUB"> РУБ</string>
+
+    <string name="january">Январь</string>
+    <string name="february">Февраль</string>
+    <string name="march">Март</string>
+    <string name="april">Апрель</string>
+    <string name="may">Май</string>
+    <string name="june">Июнь</string>
+    <string name="july">Июль</string>
+    <string name="august">Август</string>
+    <string name="september">Сентябрь</string>
+    <string name="october">Октябрь</string>
+    <string name="november">Ноябрь</string>
+    <string name="december">Декабрь</string>
+</resources>
