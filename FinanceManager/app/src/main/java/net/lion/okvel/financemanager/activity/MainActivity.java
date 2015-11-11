@@ -1,6 +1,8 @@
 package net.lion.okvel.financemanager.activity;
 
-import android.app.DialogFragment;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -11,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.bettervectordrawable.Convention;
 import com.bettervectordrawable.VectorDrawableCompat;
@@ -19,14 +22,18 @@ import net.lion.okvel.financemanager.R;
 import net.lion.okvel.financemanager.adapter.RecyclerViewAdapter;
 import net.lion.okvel.financemanager.bean.DateConverter;
 import net.lion.okvel.financemanager.bean.DateStyle;
-import net.lion.okvel.financemanager.dialog.DatePickerFragment;
+import net.lion.okvel.financemanager.database.FinanceManagerDBHelper;
+import net.lion.okvel.financemanager.database.entry.MoneyEntry;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
     /**
      * Main application layout
      */
     private static final int LAYOUT = R.layout.activity_main;
+
+    private final int REQUEST_CODE_DATE = 1;
+    private final int REQUEST_CODE_ADD = 2;
 
     private Toolbar toolbar;
     private Toolbar bottomBar;
@@ -39,8 +46,12 @@ public class MainActivity extends AppCompatActivity
     private int totalMoney = 0;
     private String[] data = new String[1];
     private net.lion.okvel.financemanager.bean.Date date;
-    private DateStyle dateStyle;
     private DateConverter dateConverter;
+    private FinanceManagerDBHelper databaseHelper;
+    private SQLiteDatabase database;
+    private String amount;
+    private String category;
+    private String addDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -53,24 +64,31 @@ public class MainActivity extends AppCompatActivity
                 R.drawable.class, Convention.ResourceNameHasVectorPrefixOrSuffix);
         VectorDrawableCompat.enableResourceInterceptionFor(getResources(), ids);
         date = net.lion.okvel.financemanager.bean.Date.getInstance();
-        dateStyle = DateStyle.MONTH_YEAR;
+        date.setDateStyle(DateStyle.MONTH_YEAR);
         dateConverter = DateConverter.createInstance(getResources());
 
+        initDataBase();
         initToolBar();
         initNavigationView();
         initRecyclerView();
         intiBottomBar();
     }
 
+    private void initDataBase()
+    {
+        databaseHelper = new FinanceManagerDBHelper(getApplicationContext());
+        database = databaseHelper.getWritableDatabase();
+    }
+
     /**
      * Initialize {@linkplain Toolbar}
      */
     private void initToolBar() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.main_toolbar);
 
-        final String date = dateConverter.convert(dateStyle);
+        final String titleDate = dateConverter.convert(date.getDateStyle());
 
-        toolbar.setTitle(date);
+        toolbar.setTitle(titleDate);
         toolbar.setOnMenuItemClickListener(toolbarMenuItemClickListener);
         toolbar.inflateMenu(R.menu.menu_main);
     }
@@ -127,6 +145,7 @@ public class MainActivity extends AppCompatActivity
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setImageResource(R.drawable.vector_plus);
+        fab.setOnClickListener(this);
     }
 
     private Toolbar.OnMenuItemClickListener toolbarMenuItemClickListener =
@@ -135,18 +154,59 @@ public class MainActivity extends AppCompatActivity
         @Override
         public boolean onMenuItemClick(MenuItem item)
         {
+            boolean result = false;
             switch (item.getItemId()) {
                 case R.id.calendar_menu:
-                    DialogFragment dialog = new DatePickerFragment();
-                    DatePickerFragment fragment = (DatePickerFragment) dialog;
-                    fragment.setDate(date.getYear(), date.getMonth(), date.getDay());
-                    fragment.setToolbar(toolbar);
-                    fragment.setDateStyle(dateStyle);
-                    dialog.show(getFragmentManager(), "datePicker");
-                    return true;
-                default:
-                    return false;
+                    callActivityForResult(DialogActivity.class, REQUEST_CODE_DATE);
+                    result = true;
+                    break;
             }
+
+            return result;
         }
     };
+
+    @Override
+    public void onClick(View v)
+    {
+        callActivityForResult(AddActivity.class, REQUEST_CODE_ADD);
+    }
+
+    private void callActivity(Class activityClass)
+    {
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
+    }
+
+    private void callActivityForResult(Class activityClass, int requestCode)
+    {
+        Intent intent = new Intent(this, activityClass);
+        startActivityForResult(intent, requestCode);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_CODE_ADD:
+                    amount = data.getStringExtra("amount");
+                    category = data.getStringExtra("category");
+                    addDate = data.getStringExtra("date");
+
+                    int id = 1;
+                    ContentValues values = new ContentValues();
+                    values.put(MoneyEntry.COLUMN_NAME_ENTRY_ID, id);
+                    values.put(MoneyEntry.COLUMN_NAME_AMOUNT, amount);
+                    values.put(MoneyEntry.COLUMN_NAME_CATEGORY, category);
+                    values.put(MoneyEntry.COLUMN_NAME_DATE, addDate);
+                    break;
+                case REQUEST_CODE_DATE:
+                    toolbar.setTitle(data.getStringExtra("date"));
+                    break;
+            }
+        }
+    }
 }

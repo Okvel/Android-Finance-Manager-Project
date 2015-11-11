@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.widget.DatePicker;
 
 import net.lion.okvel.financemanager.bean.DateConverter;
@@ -21,8 +22,8 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     private int year;
     private int month;
     private int day;
-    private net.lion.okvel.financemanager.bean.Date date;
-    private Toolbar toolbar;
+    private Button button;
+    private int[] tmpData;
     private DateStyle dateStyle;
     private DateConverter dateConverter;
 
@@ -32,7 +33,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        date = net.lion.okvel.financemanager.bean.Date.getInstance();
         dateConverter = DateConverter.instance;
     }
 
@@ -43,9 +43,14 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         this.day = day;
     }
 
-    public void setToolbar(Toolbar toolbar)
+    public void setTmpData(int[] data)
     {
-        this.toolbar = toolbar;
+        tmpData = data;
+    }
+
+    public void setButton(Button button)
+    {
+        this.button = button;
     }
 
     public void setDateStyle(DateStyle style)
@@ -64,9 +69,9 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
     {
-        date.setYear(year);
-        date.setMonth(monthOfYear);
-        date.setDay(dayOfMonth);
-        toolbar.setTitle(dateConverter.convert(dateStyle));
+        tmpData[0] = year;
+        tmpData[1] = monthOfYear;
+        tmpData[2] = dayOfMonth;
+        button.setText(dateConverter.convert(dateStyle, year, monthOfYear, dayOfMonth));
     }
 }

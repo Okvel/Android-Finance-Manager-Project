@@ -9,6 +9,7 @@ public class Date
     private int year;
     private int month;
     private int day;
+    private DateStyle dateStyle;
 
     private Date()
     {
@@ -55,5 +56,15 @@ public class Date
     public int getDay()
     {
         return day;
+    }
+
+    public void setDateStyle(DateStyle style)
+    {
+        dateStyle = style;
+    }
+
+    public DateStyle getDateStyle()
+    {
+        return dateStyle;
     }
 }

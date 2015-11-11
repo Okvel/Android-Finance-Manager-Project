@@ -36,52 +36,60 @@ public class DateConverter
             result += day.toString() + " ";
         }
 
-        if (style.equals(DateStyle.MONTH_YEAR)) {
-            switch (date.getMonth()) {
-                case 0:
-                    result += resources.getString(R.string.january);
-                    break;
-                case 1:
-                    result += resources.getString(R.string.february);
-                    break;
-                case 2:
-                    result += resources.getString(R.string.march);
-                    break;
-                case 3:
-                    result += resources.getString(R.string.april);
-                    break;
-                case 4:
-                    result += resources.getString(R.string.may);
-                    break;
-                case 5:
-                    result += resources.getString(R.string.june);
-                    break;
-                case 6:
-                    result += resources.getString(R.string.july);
-                    break;
-                case 7:
-                    result += resources.getString(R.string.august);
-                    break;
-                case 8:
-                    result += resources.getString(R.string.september);
-                    break;
-                case 9:
-                    result += resources.getString(R.string.october);
-                    break;
-                case 10:
-                    result += resources.getString(R.string.november);
-                    break;
-                case 11:
-                    result += resources.getString(R.string.december);
-                    break;
-            }
-
-            result += " ";
+        if (style.equals(DateStyle.DAY_MONTH_YEAR) || style.equals(DateStyle.MONTH_YEAR)) {
+            result += convertMonth(date.getMonth()) + " ";
         }
 
         Integer year = date.getYear();
         result += year.toString();
 
         return result;
+    }
+
+    public String convert(DateStyle style, Integer year, Integer month, Integer day)
+    {
+        String result = "";
+
+        if (style.equals(DateStyle.DAY_MONTH_YEAR)) {
+            result += day.toString() + " ";
+        }
+
+        if (style.equals(DateStyle.DAY_MONTH_YEAR) || style.equals(DateStyle.MONTH_YEAR)) {
+            result += convertMonth(month) + " ";
+        }
+
+        result += year.toString();
+
+        return result;
+    }
+
+    private String convertMonth(int month)
+    {
+        switch (month) {
+            case 0:
+                return resources.getString(R.string.january);
+            case 1:
+                return resources.getString(R.string.february);
+            case 2:
+                return resources.getString(R.string.march);
+            case 3:
+                return resources.getString(R.string.april);
+            case 4:
+                return resources.getString(R.string.may);
+            case 5:
+                return resources.getString(R.string.june);
+            case 6:
+                return resources.getString(R.string.july);
+            case 7:
+                return resources.getString(R.string.august);
+            case 8:
+                return resources.getString(R.string.september);
+            case 9:
+                return resources.getString(R.string.october);
+            case 10:
+                return resources.getString(R.string.november);
+            default:
+                return resources.getString(R.string.december);
+        }
     }
 }

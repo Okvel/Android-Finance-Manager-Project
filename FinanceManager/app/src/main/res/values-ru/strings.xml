@@ -22,4 +22,11 @@
     <string name="october">Октябрь</string>
     <string name="november">Ноябрь</string>
     <string name="december">Декабрь</string>
+    <string name="appbar_add_menu_save">СОХРАНИТЬ</string>
+    <string name="appbar_add_title">Новая сумма</string>
+    <string name="add_dialog_amount">Сумма</string>
+    <string name="add_dialog_date">Дата</string>
+    <string name="add_dialog_category">Категория</string>
+    <string name="date_dialog_title">Выберите дату</string>
+    <string name="date_dialog_negative_button">Отмена</string>
 </resources>

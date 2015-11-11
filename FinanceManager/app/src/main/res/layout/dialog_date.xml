@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="32dp">
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberPicker_day"
+            android:layout_marginRight="8dp"/>
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberPicker_month"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"/>
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberPicker_year"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_dialog_negative_button"
+            android:id="@+id/negative_button"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_dialog_positive_button"
+            android:id="@+id/positive_button"
+            style="?android:attr/borderlessButtonStyle"/>
+
+    </LinearLayout>
+
+</LinearLayout>

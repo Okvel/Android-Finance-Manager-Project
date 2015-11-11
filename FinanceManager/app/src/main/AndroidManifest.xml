@@ -15,6 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.AddActivity" >
+        </activity>
+        <activity
+            android:name=".activity.DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog">
+        </activity>
     </application>
 
 </manifest>

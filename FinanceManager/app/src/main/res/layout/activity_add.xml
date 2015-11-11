@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -10,11 +12,65 @@
 
         <android.support.v7.widget.Toolbar
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/toolbar"
+            android:id="@+id/add_activity_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:theme="@style/ToolBarTheme"/>
     </android.support.design.widget.AppBarLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="16dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:id="@+id/amount_edit_text"
+                android:textSize="@dimen/abc_text_size_display_1_material"
+                android:singleLine="true"
+                android:hint="@string/add_dialog_amount"
+                android:layout_marginBottom="8dp"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/add_dialog_date"
+            android:id="@+id/date_textView"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_button"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/abc_text_size_medium_material"
+            android:background="@color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/add_dialog_category"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/category_button"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

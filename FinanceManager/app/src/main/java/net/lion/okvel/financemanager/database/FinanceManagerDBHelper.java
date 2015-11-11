@@ -25,6 +25,7 @@ public class FinanceManagerDBHelper extends SQLiteOpenHelper
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
-
+        db.execSQL(MoneyContract.SQL_DELETE_ENTRIES);
+        onCreate(db);
     }
 }
