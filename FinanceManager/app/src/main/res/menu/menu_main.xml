@@ -5,8 +5,15 @@
 
     <item
         android:id="@+id/calendar_menu"
-        android:orderInCategory="1"
+        android:orderInCategory="2"
         android:title="@string/appbar_main_menu_calendar"
         android:icon="@drawable/vector_calendar"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/back_to_current_date_menu"
+        android:orderInCategory="1"
+        android:title="@string/appbar_main_menu_back_to_current_date"
+        android:icon="@drawable/vector_arrow_right"
         app:showAsAction="ifRoom"/>
 </menu>

@@ -82,12 +82,14 @@ public class DialogActivity extends AppCompatActivity
     {
         Button positiveDialogButton = (Button) findViewById(R.id.positive_button);
         positiveDialogButton.setOnClickListener(this);
+        positiveDialogButton.setTextColor(getResources().getColor(R.color.accent_fm_theme));
     }
 
     private void initNegativeDialogButton()
     {
         Button negativeDialogButton = (Button) findViewById(R.id.negative_button);
         negativeDialogButton.setOnClickListener(this);
+        negativeDialogButton.setTextColor(getResources().getColor(R.color.accent_fm_theme));
     }
 
     @Override

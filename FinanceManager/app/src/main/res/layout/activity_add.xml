@@ -70,7 +70,8 @@
             android:id="@+id/category_button"
             android:layout_gravity="center_horizontal"
             android:background="@color/white"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textSize="@dimen/abc_text_size_medium_material"/>
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

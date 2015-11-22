@@ -4,9 +4,11 @@ import android.provider.BaseColumns;
 
 public abstract class MoneyEntry implements BaseColumns
 {
-    public static final String TABLE_NAME = "moneyEntry";
-    public static final String COLUMN_NAME_ENTRY_ID = "entryID";
-    public static final String COLUMN_NAME_AMOUNT = "amount";
-    public static final String COLUMN_NAME_DATE = "date";
-    public static final String COLUMN_NAME_CATEGORY = "category";
+    public static final String TABLE_NAME = "MONEY";
+    //public static final String COLUMN_NAME_ENTRY_ID = "ENTRY_ID";
+    public static final String COLUMN_NAME_AMOUNT = "AMOUNT";
+    public static final String COLUMN_NAME_DAY = "DAY";
+    public static final String COLUMN_NAME_MONTH = "MONTH";
+    public static final String COLUMN_NAME_YEAR = "YEAR";
+    public static final String COLUMN_NAME_CATEGORY = "CATEGORY";
 }

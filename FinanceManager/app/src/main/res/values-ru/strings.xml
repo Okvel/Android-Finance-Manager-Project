@@ -29,4 +29,7 @@
     <string name="add_dialog_category">Категория</string>
     <string name="date_dialog_title">Выберите дату</string>
     <string name="date_dialog_negative_button">Отмена</string>
+    <string name="appbar_main_menu_back_to_current_date">Сегодня</string>
+    <string name="recycler_view_item_category">Категория:</string>
+    <string name="main_insert_error">Информация не была сохранена</string>
 </resources>
