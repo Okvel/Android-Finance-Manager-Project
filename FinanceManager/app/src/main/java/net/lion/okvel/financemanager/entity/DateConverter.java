@@ -1,4 +1,4 @@
-package net.lion.okvel.financemanager.bean;
+package net.lion.okvel.financemanager.entity;
 
 import android.content.res.Resources;
 
@@ -8,7 +8,7 @@ public class DateConverter
 {
     public static DateConverter instance = null;
 
-    private Date date;
+    private FinanceManagerDate financeManagerDate;
     private Resources resources;
 
     public static DateConverter createInstance(Resources resources)
@@ -23,7 +23,7 @@ public class DateConverter
 
     private DateConverter(Resources resources)
     {
-        date = Date.getInstance();
+        financeManagerDate = FinanceManagerDate.getInstance();
         this.resources = resources;
     }
 
@@ -32,15 +32,15 @@ public class DateConverter
         String result = "";
 
         if (style.equals(DateStyle.DAY_MONTH_YEAR)) {
-            Integer day = date.getDay();
+            Integer day = financeManagerDate.getDay();
             result += day.toString() + " ";
         }
 
         if (style.equals(DateStyle.DAY_MONTH_YEAR) || style.equals(DateStyle.MONTH_YEAR)) {
-            result += convertMonth(date.getMonth()) + " ";
+            result += convertMonth(financeManagerDate.getMonth()) + " ";
         }
 
-        Integer year = date.getYear();
+        Integer year = financeManagerDate.getYear();
         result += year.toString();
 
         return result;

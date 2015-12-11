@@ -1,22 +1,18 @@
-package net.lion.okvel.financemanager.dialog;
+package net.lion.okvel.financemanager.fragment;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.DatePicker;
 
-import net.lion.okvel.financemanager.bean.DateConverter;
-import net.lion.okvel.financemanager.bean.DateStyle;
+import net.lion.okvel.financemanager.entity.DateConverter;
+import net.lion.okvel.financemanager.entity.DateStyle;
 
 import java.util.Calendar;
-import java.util.Date;
+import java.util.GregorianCalendar;
 
-/**
- *
- */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener
 {
     private int year;
@@ -62,7 +58,8 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
         DatePickerDialog dialog = new DatePickerDialog(getActivity(), this, year, month, day);
-        dialog.getDatePicker().setMaxDate(new Date().getTime());
+        GregorianCalendar calendar = new GregorianCalendar(year, month, day, 23, 59, 59);
+        dialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
         return dialog;
     }
 

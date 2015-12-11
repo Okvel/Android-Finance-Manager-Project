@@ -2,5 +2,5 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <item name="disable_alpha_fm_theme" type="dimen" format="float">0.30</item>
+    <item name="disable_alpha_fm_theme" format="float" type="dimen">0.30</item>
 </resources>

@@ -1,4 +1,4 @@
-package net.lion.okvel.financemanager.bean;
+package net.lion.okvel.financemanager.entity;
 
 public enum DateStyle
 {

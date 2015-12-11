@@ -4,7 +4,7 @@
 
     <string name="settings">Настройки</string>
     <string name="menu_navigation_month">Месяц</string>
-    <string name="menu_navigation_day">День</string>
+    <string name="menu_navigation_day">Дзень</string>
     <string name="menu_navigation_year">Год</string>
 
     <string name="bottom_bar_total">Всего: </string>

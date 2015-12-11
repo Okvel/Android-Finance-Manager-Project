@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/settings_start_type_key"
+        android:title="@string/settings_start_type_title"
+        android:defaultValue="@string/start_type_default_entry"
+        android:entries="@array/date_type_values"
+        android:entryValues="@array/date_type_entries"
+        android:summary="@string/start_type_default"/>
+</PreferenceScreen>

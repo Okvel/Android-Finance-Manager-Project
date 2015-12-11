@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/month_menu_navigation_item"
-          android:title="@string/menu_navigation_month"
+    <item
+        android:id="@+id/day_menu_navigation_item"
+        android:title="@string/menu_navigation_day"
+        />
+    <item
+        android:id="@+id/month_menu_navigation_item"
+        android:title="@string/menu_navigation_month"
+        />
+    <item
+        android:id="@+id/year_menu_navigation_item"
+        android:title="@string/menu_navigation_year"
+        />
+    <item
+        android:id="@+id/statistics_menu_navigation_item"
+        android:title="@string/statistics_title"
+        />
+    <item
+        android:id="@+id/settings_menu_navigation_item"
+        android:title="@string/settings"
         />
 </menu>

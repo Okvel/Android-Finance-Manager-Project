@@ -1,17 +1,17 @@
-package net.lion.okvel.financemanager.bean;
+package net.lion.okvel.financemanager.entity;
 
 import java.util.Calendar;
 
-public class Date
+public class FinanceManagerDate
 {
-    private static Date instance = null;
+    private static FinanceManagerDate instance = null;
 
     private int year;
     private int month;
     private int day;
     private DateStyle dateStyle;
 
-    private Date()
+    private FinanceManagerDate()
     {
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -19,10 +19,10 @@ public class Date
         day = calendar.get(Calendar.DAY_OF_MONTH);
     }
 
-    public static Date getInstance()
+    public synchronized static FinanceManagerDate getInstance()
     {
         if (instance == null) {
-            instance = new Date();
+            instance = new FinanceManagerDate();
         }
 
         return instance;

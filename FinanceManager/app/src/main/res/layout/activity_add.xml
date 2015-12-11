@@ -17,6 +17,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:theme="@style/ToolBarTheme"/>
+
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
@@ -32,11 +33,11 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:id="@+id/amount_edit_text"
                 android:textSize="@dimen/abc_text_size_display_1_material"
                 android:singleLine="true"
-                android:hint="@string/add_dialog_amount"
+                android:hint="@string/activity_edit_amount"
                 android:layout_marginBottom="8dp"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -44,9 +45,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/add_dialog_date"
-            android:id="@+id/date_textView"
-            android:layout_marginBottom="8dp"/>
+            android:text="@string/activity_edit_date"
+            android:layout_marginBottom="8dp"
+            android:textSize="@dimen/abc_text_size_caption_material"/>
 
         <Button
             android:layout_width="match_parent"
@@ -54,24 +55,78 @@
             android:id="@+id/date_button"
             android:layout_gravity="center_horizontal"
             android:textSize="@dimen/abc_text_size_medium_material"
-            android:background="@color/white"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:background="@color/background_fm_theme"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/add_dialog_category"
-            android:layout_marginBottom="8dp"/>
+            android:text="@string/activity_edit_type"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/textView"
+            android:textSize="@dimen/abc_text_size_caption_material"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:baselineAligned="false">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_incomes"
+                android:textSize="@dimen/abc_text_size_medium_material"
+                android:text="@string/incomes"
+                android:layout_weight="1"
+                android:background="@color/background_fm_theme"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/expenses"
+                android:textSize="@dimen/abc_text_size_medium_material"
+                android:id="@+id/button_expenses"
+                android:layout_weight="1"
+                android:background="@color/background_fm_theme"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/button_text_inactive"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/activity_edit_category"
+            android:layout_marginBottom="8dp"
+            android:textSize="@dimen/abc_text_size_caption_material"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/category_button"
             android:layout_gravity="center_horizontal"
-            android:background="@color/white"
             android:layout_marginBottom="8dp"
-            android:textSize="@dimen/abc_text_size_medium_material"/>
+            android:textSize="@dimen/abc_text_size_medium_material"
+            android:background="@color/background_fm_theme"/>
 
     </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:layout_gravity="bottom"
+        android:elevation="@dimen/design_appbar_elevation"
+        android:visibility="invisible"/>
+
 </android.support.design.widget.CoordinatorLayout>

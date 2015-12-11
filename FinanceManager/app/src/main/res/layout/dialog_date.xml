@@ -56,7 +56,8 @@
             android:layout_height="wrap_content"
             android:text="@string/date_dialog_positive_button"
             android:id="@+id/positive_button"
-            style="?android:attr/borderlessButtonStyle"/>
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_marginRight="16dp"/>
 
     </LinearLayout>
 

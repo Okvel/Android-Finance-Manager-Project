@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Finance Manager PreAlpha</string>
+    <string name="app_name" translatable="false">Finance Manager Alpha</string>
 
     <string name="main_insert_error">Information wasn\'t saved</string>
 
@@ -8,15 +8,15 @@
     <string name="appbar_add_title">New amount</string>
     <string name="appbar_add_menu_save">SAVE</string>
 
-    <string name="menu_navigation_settings">Settings</string>
-    <string name="menu_navigation_help">Help</string>
+    <string name="menu_navigation_day">Day</string>
     <string name="menu_navigation_month">Month</string>
+    <string name="menu_navigation_year">Year</string>
+    <string name="settings">Settings</string>
 
     <string name="view_navigation_open" translatable="false">Open</string>
     <string name="view_navigation_close" translatable="false">Close</string>
 
     <string name="bottom_bar_total">Total: </string>
-    <string name="bottom_bar_RUB"> RUB</string>
 
     <string name="january">January</string>
     <string name="february">February</string>
@@ -31,13 +31,40 @@
     <string name="november">November</string>
     <string name="december">December</string>
 
-    <string name="add_dialog_amount">Amount</string>
-    <string name="add_dialog_date">Date</string>
-    <string name="add_dialog_category">Category</string>
+    <string name="activity_edit_amount">Amount</string>
+    <string name="activity_edit_date">Date</string>
+    <string name="activity_edit_type">Type</string>
+    <string name="activity_edit_category">Category</string>
+    <string name="activity_edit_delete">DELETE</string>
+    <string name="type_dialog_title">Pick the type</string>
+    <string name="incomes">Incomes</string>
+    <string name="expenses">Expenses</string>
 
     <string name="date_dialog_title">Choose date</string>
     <string name="date_dialog_positive_button" translatable="false">OK</string>
     <string name="date_dialog_negative_button">Cancel</string>
 
     <string name="recycler_view_item_category">Category:</string>
+
+    <string name="settings_start_type_key" translatable="false">start_page</string>
+    <string name="settings_start_type_title">Start page</string>
+    <string-array name="date_type_values">
+        <item name="day">Day</item>
+        <item name="month">Month</item>
+        <item name="year">Year</item>
+    </string-array>
+    <string-array name="date_type_entries">
+        <item>Day</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+    <string name="start_type_default">Month</string>
+    <string name="start_type_default_entry">Month</string>
+    
+    <string name="statistics_title">Statistics</string>
+    <string name="current_month">Current month</string>
+    <string name="last_month">Last month</string>
+    <string name="current_year">Current year</string>
+    <string name="last_year">Last year</string>
+    <string name="total_statistics">Total</string>
 </resources>

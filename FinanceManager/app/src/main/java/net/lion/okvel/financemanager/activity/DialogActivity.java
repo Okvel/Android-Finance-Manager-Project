@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 
 import net.lion.okvel.financemanager.R;
-import net.lion.okvel.financemanager.bean.Date;
-import net.lion.okvel.financemanager.bean.DateConverter;
-import net.lion.okvel.financemanager.bean.DateStyle;
+import net.lion.okvel.financemanager.entity.DateConverter;
+import net.lion.okvel.financemanager.entity.DateStyle;
+import net.lion.okvel.financemanager.entity.FinanceManagerDate;
 
 import java.util.Calendar;
 
@@ -23,7 +23,7 @@ public class DialogActivity extends AppCompatActivity
     private NumberPicker numberPickerMonth;
     private NumberPicker numberPickerYear;
 
-    private Date date;
+    private FinanceManagerDate financeManagerDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,17 +32,17 @@ public class DialogActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
 
-        date = Date.getInstance();
+        financeManagerDate = FinanceManagerDate.getInstance();
 
         setTitle(R.string.date_dialog_title);
 
         boolean isDay = false;
         boolean isMonth = false;
-        if (date.getDateStyle() == DateStyle.DAY_MONTH_YEAR) {
+        if (financeManagerDate.getDateStyle() == DateStyle.DAY_MONTH_YEAR) {
             isDay = true;
             isMonth = true;
         }
-        else if (date.getDateStyle() == DateStyle.MONTH_YEAR) {
+        else if (financeManagerDate.getDateStyle() == DateStyle.MONTH_YEAR) {
             isMonth = true;
         }
         initNumberPickers(isDay, isMonth);
@@ -58,21 +58,21 @@ public class DialogActivity extends AppCompatActivity
         numberPickerDay = (NumberPicker) findViewById(R.id.numberPicker_day);
         numberPickerDay.setMinValue(1);
         numberPickerDay.setMaxValue(31);
-        numberPickerDay.setValue(date.getDay());
+        numberPickerDay.setValue(financeManagerDate.getDay());
 
         numberPickerMonth = (NumberPicker) findViewById(R.id.numberPicker_month);
         numberPickerMonth.setMinValue(1);
         numberPickerMonth.setMaxValue(12);
-        numberPickerMonth.setValue(date.getMonth() + 1);
+        numberPickerMonth.setValue(financeManagerDate.getMonth() + 1);
         numberPickerMonth.setOnValueChangedListener(this);
 
         numberPickerYear = (NumberPicker) findViewById(R.id.numberPicker_year);
         numberPickerYear.setMinValue(1970);
         numberPickerYear.setMaxValue(calendar.get(Calendar.YEAR));
-        numberPickerYear.setValue(date.getYear());
+        numberPickerYear.setValue(financeManagerDate.getYear());
         numberPickerYear.setOnValueChangedListener(this);
 
-        checkYear(date.getYear());
+        checkYear(financeManagerDate.getYear());
 
         numberPickerDay.setEnabled(isDay);
         numberPickerMonth.setEnabled(isMonth);
@@ -97,12 +97,12 @@ public class DialogActivity extends AppCompatActivity
     {
         switch (v.getId()) {
             case R.id.positive_button:
-                date.setYear(numberPickerYear.getValue());
-                date.setMonth(numberPickerMonth.getValue() - 1);
-                date.setDay(numberPickerDay.getValue());
+                financeManagerDate.setYear(numberPickerYear.getValue());
+                financeManagerDate.setMonth(numberPickerMonth.getValue() - 1);
+                financeManagerDate.setDay(numberPickerDay.getValue());
                 Intent intent = new Intent();
-                String result = DateConverter.instance.convert(date.getDateStyle());
-                intent.putExtra("date", result);
+                String result = DateConverter.instance.convert(financeManagerDate.getDateStyle());
+                intent.putExtra("financeManagerDate", result);
                 setResult(RESULT_OK, intent);
                 break;
             case R.id.negative_button:
