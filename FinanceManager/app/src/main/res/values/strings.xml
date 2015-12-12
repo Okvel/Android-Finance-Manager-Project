@@ -16,7 +16,7 @@
     <string name="view_navigation_open" translatable="false">Open</string>
     <string name="view_navigation_close" translatable="false">Close</string>
 
-    <string name="bottom_bar_total">Total: </string>
+    <string name="total">Total: </string>
 
     <string name="january">January</string>
     <string name="february">February</string>
