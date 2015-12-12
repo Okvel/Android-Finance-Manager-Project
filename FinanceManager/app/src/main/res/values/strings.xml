@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Finance Manager Alpha</string>
+    <string name="app_name" translatable="false">Finance Manager</string>
 
     <string name="main_insert_error">Information wasn\'t saved</string>
 
@@ -16,7 +16,7 @@
     <string name="view_navigation_open" translatable="false">Open</string>
     <string name="view_navigation_close" translatable="false">Close</string>
 
-    <string name="total">Total: </string>
+    <string name="bottom_bar_title">Total: </string>
 
     <string name="january">January</string>
     <string name="february">February</string>

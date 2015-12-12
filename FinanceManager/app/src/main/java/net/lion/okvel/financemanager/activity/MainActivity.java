@@ -390,7 +390,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setBottomBarTitle() {
         String money = MoneyUtil.moneyToString(totalMoney.toString());
-        bottomBar.setTitle(getResources().getString(R.string.total) + " " + money + " " + currency);
+        bottomBar.setTitle(getResources().getString(R.string.bottom_bar_title) + " " + money + " " + currency);
     }
 
     private boolean checkDate() {
